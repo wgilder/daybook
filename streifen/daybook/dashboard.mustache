@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Daybook: {{title}}</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div id="header">
+<h2>{{header}}</h2>
+</div>
+<div id="body">
+  <p>{{body}}</p>
+  <ul>
+  <li>
+    <span class="name">Name</span>
+    <span class="date">Date</span>
+    <span class="location">Location</span>
+    <span class="amount">Amount</span>
+    <span class="desc">Description</span>
+  </li>
+  {{#items}}
+  <li>
+    <span class="name">{{name}}</span>
+    <span class="date">{{date}}</span>
+    <span class="location">{{location}}</span>
+    <span class="amount">{{currency}}{{amount}}</span>
+    <span class="desc">{{description}}</span>
+  </li>
+  {{/items}}
+  </ul>
+</div>
+</body>
+</html>
