@@ -2,7 +2,6 @@
 walter.gildersleeve/daybook:
   Env:
     - DAYBOOK_PORT_DEST: "8080"
-    - THIS_IS_THE_PORT: "11235"
   PreBuild:
   Build:
     - docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
