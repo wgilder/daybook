@@ -1,4 +1,3 @@
-# -*- coding: iso-8859-15 -*-
 import os
 import json
 from urllib.request import urlopen
@@ -41,8 +40,8 @@ class Item:
         self.description = description
 
 items = [
-    Item("Taxi", "May 3", "London", "25.00", "£", "Train station -> customer"),
-    Item("Lunch", "May 3", "London", "6.00", "£"),
-    Item("Train", "May 3", "London", "27.00", "£", "Return to home"),
-    Item("Taxi", "May 3", "London", "8.50", "£", "Train station -> home")
+    Item("Taxi", "May 3", "Waterloo", "25.00", "$", "Train station -> customer"),
+    Item("Lunch", "May 3", "Paris", "6.00", "$"),
+    Item("Train", "May 3", "Moscow", "27.00", "$", "Return to hotel"),
+    Item("Taxi", "May 3", "Honolulu", "8.50", "$", "Train station -> hotel")
 ]

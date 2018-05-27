@@ -6,7 +6,7 @@ class AboutInfo(object):
         self.payload = load_api("version")
 
     def header(self):
-        return "About the Daybook App"
+        return "Daybook: About"
 
     def title(self):
         return "Daybook App Info"

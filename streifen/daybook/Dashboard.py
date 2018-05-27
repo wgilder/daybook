@@ -2,13 +2,13 @@ from streifen.daybook import items
 
 class Dashboard(object):
     def header(self):
-        return "This is the Body Header"
+        return "Daybook: Open Items"
 
     def body(self):
-        return "And here's the Body Content"
+        return "May 29th, 2018 ({} item{})".format(len(items), "" if len(items)==1 else "s")
 
     def title(self):
-        return "Page Title"
+        return "Open Items"
 
     def items(self):
         return items
