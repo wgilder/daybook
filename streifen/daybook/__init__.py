@@ -1,12 +1,35 @@
 # -*- coding: iso-8859-15 -*-
 import os
+import json
+from urllib.request import urlopen
 
-DAYBOOK_ENV = {
-    'message': os.environ['DAYBOOK_ENV_SPECIFIC_MESSAGE'],
-    'api_port': os.environ['DAYBOOK_API_PORT'],
-    'api_url': os.environ['DAYBOOK_API_URL']
+ENV_DEFAULTS = {
+    'message': 'Default Message',
+    'api_protocol': 'http',
+    'api_port': '9000',
+    'api_url': 'localhost'
 }
 
+def env(key, default):
+    if (key in os.environ):
+        return os.environ[key]
+    else:
+        return default
+
+DAYBOOK_ENV = {
+    'message': env('DAYBOOK_ENV_SPECIFIC_MESSAGE', ENV_DEFAULTS['message']),
+    'api_protocol': env('DAYBOOK_API_PROTOCOL', ENV_DEFAULTS['api_protocol']),
+    'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port']),
+    'api_url': env('DAYBOOK_API_URL', ENV_DEFAULTS['api_url'])
+}
+
+def load_api(name):
+    url = DAYBOOK_ENV['api_protocol'] + "://" + DAYBOOK_ENV['api_url'] + ":" + DAYBOOK_ENV['api_port'] + "/v1/" + name
+    print (url)
+    raw = urlopen(url)
+    text = raw.read()
+    json_body = json.loads(text.decode('utf-8'))
+    return json_body
 
 class Item:
     def __init__(self, name, date, location, amount, currency, description = ""):

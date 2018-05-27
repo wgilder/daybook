@@ -1,16 +1,27 @@
 import json
-import urllib2
-
-from streifen.daybook import DAYBOOK_ENV
-
-#json.load(urllib2.urlopen("url"))
+from streifen.daybook import load_api
 
 class AboutInfo(object):
-    def header(self):
-        return "Current environment"
+    def __init__(self):
+        self.payload = load_api("version")
 
-    def body(self):
-        return DAYBOOK_ENV['message']
+    def header(self):
+        return "About the Daybook App"
 
     def title(self):
-        return "Daybook Information"
+        return "Daybook App Info"
+
+    def message(self):
+        return self.payload['message']
+
+    def version(self):
+        return self.payload['version']
+
+    def build_number(self):
+        return self.payload['buildNumber']
+
+    def author(self):
+        return self.payload['author']
+
+    def email(self):
+        return self.payload['email']
