@@ -18,8 +18,8 @@ def env(key, default):
 DAYBOOK_ENV = {
     'message': env('DAYBOOK_ENV_SPECIFIC_MESSAGE', ENV_DEFAULTS['message']),
     'api_protocol': env('DAYBOOK_API_PROTOCOL', ENV_DEFAULTS['api_protocol']),
-    'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port']),
-    'api_url': env('DAYBOOK_API_URL', ENV_DEFAULTS['api_url'])
+    'api_url': env('DAYBOOK_API_URL', ENV_DEFAULTS['api_url']),
+    'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port'])
 }
 
 def load_api(name):
