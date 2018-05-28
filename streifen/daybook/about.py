@@ -16,6 +16,9 @@ class AboutInfo(object):
     def message(self):
         return self.payload['message']
 
+    def motd(self):
+        return self.payload['message']
+
     def ui_version(self):
         return self.payload['version']
 
