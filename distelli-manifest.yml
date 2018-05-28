@@ -23,7 +23,7 @@ walter.gildersleeve/daybook:
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     - echo ~~~ sudo -E docker run --name=$cid --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - sudo -E docker run --name=$cid --env DAYBOOK_BUILD=$DISTELLI_BUILDNUM --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - sudo -E docker run --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_BUILD=$DISTELLI_BUILDNUM --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - wait
     - "true"
 ### End Docker Exec Commands ###
