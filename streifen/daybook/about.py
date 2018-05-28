@@ -1,11 +1,11 @@
 import json
 from streifen.daybook import load_api, DAYBOOK_ENV
 
-motd = "Default MotD"
 
 class AboutInfo(object):
     def __init__(self):
         self.payload = load_api("version")
+        self._motd = "Default MotD"
 
     def header(self):
         return "Daybook: About"
@@ -17,7 +17,7 @@ class AboutInfo(object):
         return self.payload['message']
 
     def motd(self):
-        return self.payload['message']
+        return self._motd
 
     def ui_version(self):
         return self.payload['version']
