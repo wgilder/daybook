@@ -35,3 +35,6 @@ class AboutInfo(object):
 
     def email(self):
         return self.payload['email']
+
+    def deploy_env(self):
+        return DAYBOOK_ENV['deploy_env']

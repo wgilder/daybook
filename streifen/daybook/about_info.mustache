@@ -23,6 +23,14 @@
     border-bottom: 1px solid black;
     padding: 0.5em 1em;
   }
+  
+  #footer {
+    bottom: 1em;
+    color: grey;
+    font-size: 80%;
+    left: 1em;
+    position: absolute;
+  }
 
 /* page specific */
 #body #bodyHeader {
@@ -45,6 +53,9 @@
   <p>API Version: <span>v{{api_version}}-b{{api_build_number}}</span></p>
   <p>Web App Version: <span>v{{ui_version}}-b{{ui_build_number}}</span></p>
   <p>Author: <span class="info">{{author}} ({{email}})</span></p>
+</div>
+<div id="footer">
+  env: {{deploy_env}}
 </div>
 </body>
 </html>

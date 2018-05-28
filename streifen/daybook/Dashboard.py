@@ -1,4 +1,4 @@
-from streifen.daybook import items
+from streifen.daybook import items, DAYBOOK_ENV
 
 class Dashboard(object):
     def header(self):
@@ -12,4 +12,7 @@ class Dashboard(object):
 
     def items(self):
         return items
+
+    def deploy_env(self):
+        return DAYBOOK_ENV['deploy_env']
 

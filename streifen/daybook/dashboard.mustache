@@ -24,6 +24,14 @@
     padding: 0.5em 1em;
   }
   
+  #footer {
+    bottom: 1em;
+    color: grey;
+    font-size: 80%;
+    left: 1em;
+    position: absolute;
+  }
+  
 /* page specific */
   #tableHead {
     border-bottom: 1px dotted blue;
@@ -74,6 +82,9 @@
   </li>
   {{/items}}
   </ul>
+</div>
+<div id="footer">
+  env: {{deploy_env}}
 </div>
 </body>
 </html>

@@ -7,7 +7,8 @@ ENV_DEFAULTS = {
     'api_protocol': 'http',
     'api_port': '9000',
     'api_url': 'localhost',
-    'ui_bn': '-1'
+    'ui_bn': '-1',
+    'deploy_env': 'unknown'
 }
 
 def env(key, default):
@@ -21,7 +22,8 @@ DAYBOOK_ENV = {
     'api_protocol': env('DAYBOOK_API_PROTOCOL', ENV_DEFAULTS['api_protocol']),
     'api_url': env('DAYBOOK_API_URL', ENV_DEFAULTS['api_url']),
     'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port']),
-    'ui_bn': env('DAYBOOK_BUILD', ENV_DEFAULTS['ui_bn'])
+    'ui_bn': env('DAYBOOK_BUILD', ENV_DEFAULTS['ui_bn']),
+    'deploy_env': env('DAYBOOK_ENV', ENV_DEFAULTS['deploy_env'])
 }
 
 def load_api(name):
