@@ -1,5 +1,5 @@
 import json
-from streifen.daybook import load_api
+from streifen.daybook import load_api, DAYBOOK_ENV
 
 class AboutInfo(object):
     def __init__(self):
@@ -9,15 +9,21 @@ class AboutInfo(object):
         return "Daybook: About"
 
     def title(self):
-        return "Daybook App Info"
+        return "Daybook: About"
 
     def message(self):
         return self.payload['message']
 
-    def version(self):
+    def ui_version(self):
         return self.payload['version']
 
-    def build_number(self):
+    def ui_build_number(self):
+        return DAYBOOK_ENV['ui_bn']
+
+    def api_version(self):
+        return self.payload['version']
+
+    def api_build_number(self):
         return self.payload['buildNumber']
 
     def author(self):

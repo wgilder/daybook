@@ -3,10 +3,11 @@ import json
 from urllib.request import urlopen
 
 ENV_DEFAULTS = {
-    'message': 'Default Message',
+    'message': 'Default MotD',
     'api_protocol': 'http',
     'api_port': '9000',
-    'api_url': 'localhost'
+    'api_url': 'localhost',
+    'ui_bn': '-1'
 }
 
 def env(key, default):
@@ -19,7 +20,8 @@ DAYBOOK_ENV = {
     'message': env('DAYBOOK_ENV_SPECIFIC_MESSAGE', ENV_DEFAULTS['message']),
     'api_protocol': env('DAYBOOK_API_PROTOCOL', ENV_DEFAULTS['api_protocol']),
     'api_url': env('DAYBOOK_API_URL', ENV_DEFAULTS['api_url']),
-    'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port'])
+    'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port']),
+    'ui_bn': env('DAYBOOK_BUILD', ENV_DEFAULTS['ui_bn'])
 }
 
 def load_api(name):
