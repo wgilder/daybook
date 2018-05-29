@@ -4,7 +4,7 @@ from streifen.daybook import load_api, DAYBOOK_ENV
 class AboutInfo(object):
     def __init__(self):
         self.payload = load_api("version")
-        self._motd = "Default MotD"
+        self._motd = "Hello From Berlin!"
 
     def header(self):
         return "Daybook: About"
