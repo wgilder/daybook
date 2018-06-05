@@ -44,8 +44,8 @@ class Item:
         self.description = description
 
 items = [
-    Item("Taxi", "May 13", "Waterloo", "25.00", "$", "Train station -> customer"),
-    Item("Lunch", "May 16", "Paris", "6.00", "$"),
-    Item("Train", "May 17", "Moscow", "27.00", "$", "Return to hotel"),
-    Item("Taxi", "May 21", "Honolulu", "8.50", "$", "Train station -> hotel")
+    Item("Taxi", "May 26", "Waterloo", "25.00", "$", "Train station -> customer"),
+    Item("Lunch", "May 27", "Paris", "6.00", "$"),
+    Item("Train", "May 30", "Moscow", "27.00", "$", "Return to hotel"),
+    Item("Taxi", "June 3", "Honolulu", "8.50", "$", "Train station -> hotel")
 ]
