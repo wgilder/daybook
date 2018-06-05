@@ -33,6 +33,10 @@
     position: absolute;
   }
 
+  div div span, span.author {
+    font-weight: bold;
+  }
+
 /* page specific */
 #body #bodyHeader {
   font-size: 130%;
@@ -51,7 +55,7 @@
 </div>
 <div id="body">
   <p id="bodyHeader">{{motd}}</p>
-  <p class="bold">Author: <span class="author">{{author}} ({{email}})</span></p>
+  <p class="bold">Author: <span class="author">{{author}}</span> <span class="email">({{email}})</span></p>
   <div>(API: <span>v{{api_version}}-b{{api_build_number}}</span> / 
   UI: <span>v{{ui_version}}-b{{ui_build_number}})</span></div>
 </div>
