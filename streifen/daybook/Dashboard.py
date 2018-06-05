@@ -5,7 +5,7 @@ class Dashboard(object):
         return "Daybook: Open Items"
 
     def body(self):
-        return "May 29th, 2018 ({} item{})".format(len(items), "" if len(items)==1 else "s")
+        return "June 5th, 2018 ({} item{})".format(len(items), "" if len(items)==1 else "s")
 
     def title(self):
         return "Open Items"
