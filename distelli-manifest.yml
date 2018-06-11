@@ -1,10 +1,10 @@
 # Puppet Pipelines demo, v6
 walter.gildersleeve/daybook:
   Env:
-    - DAYBOOK_PORT_DEST: "8080"
+    - DAYBOOK_PORT_DEST: "8081"
     - DBAPI_PROTOCOL: "http"
     - DBAPI_URL: "localhost"
-    - DBAPI_PORT: "9000"
+    - DBAPI_PORT: "9001"
   PreBuild:
   Build:
     - echo Building the Daybook Front End Application
@@ -12,20 +12,18 @@ walter.gildersleeve/daybook:
     - docker build --quiet=false -t "$DISTELLI_DOCKER_REPO" $DISTELLI_DOCKER_PATH
     - docker tag "$DISTELLI_DOCKER_REPO" "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
     - docker push "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+    - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - echo ~~~ Use the following command to start the Docker container:
+    - echo    sudo -E docker run --name=db-sa --env DOCKER_HOSTNAME=$HOSTNAME --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+    - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   PkgInclude:
   PkgExclude:
   PreInstall:
-    - sudo docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
   PostInstall:
   Exec:
-### Docker Exec Commands ###
-    - echo Starting the Daybook Front End Application
-    - cid=$(uuidgen)
-    - trap 'sudo docker stop $cid' SIGTERM
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - echo ~~~ sudo -E docker run --name=$cid --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - echo ~~~ Error; application should be started manually from the command line. 
+    - echo ~~~ See the build output for the start command.
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - sudo -E docker run --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_BUILD=$DISTELLI_BUILDNUM --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
-    - wait
-    - "true"
+    - exit 1
 ### End Docker Exec Commands ###
