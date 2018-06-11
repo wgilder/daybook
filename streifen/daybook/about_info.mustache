@@ -27,10 +27,13 @@
   #footer {
     bottom: 1em;
     color: grey;
-    font-size: 80%;
-    font-weight: bold;
     left: 1em;
     position: absolute;
+  }
+
+  #footer span {
+    color: #009;
+    font-weight: bold;
   }
 
   div div span, span.author {
@@ -60,7 +63,7 @@
   UI: <span>v{{ui_version}}-b{{ui_build_number}})</span></div>
 </div>
 <div id="footer">
-  host: {{hostname}}
+  host: <span>{{hostname}}</span>
 </div>
 </body>
 </html>
