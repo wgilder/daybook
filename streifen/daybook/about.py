@@ -4,7 +4,7 @@ from streifen.daybook import load_api, DAYBOOK_ENV
 class AboutInfo(object):
     def __init__(self):
         self.payload = load_api("version")
-        self._motd = "Hello to the Linux Stammtisch!!"
+        self._motd = "Default MotD"
 
     def header(self):
         return "Daybook: About"
@@ -38,3 +38,6 @@ class AboutInfo(object):
 
     def deploy_env(self):
         return DAYBOOK_ENV['deploy_env']
+
+    def hostname(self):
+        return DAYBOOK_ENV['hostname']
