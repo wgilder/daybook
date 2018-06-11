@@ -1,5 +1,5 @@
-# Puppet Pipelines demo, v6
-walter.gildersleeve/daybook:
+# Standalone version, for demoing Bolt
+walter.gildersleeve/daybook-sa:
   Env:
     - DAYBOOK_PORT_DEST: "8081"
     - DBAPI_PROTOCOL: "http"
