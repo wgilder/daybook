@@ -26,4 +26,3 @@ walter.gildersleeve/daybook-sa:
     - echo ~~~ See the build output for the start command.
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     - exit 1
-### End Docker Exec Commands ###
