@@ -23,3 +23,7 @@ def about():
     about = AboutInfo()
     renderer = pystache.Renderer()
     return renderer.render(about)
+
+@app.route('/heartbeat')
+def heartbeat():
+    return "ok"
