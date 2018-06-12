@@ -27,10 +27,13 @@
   #footer {
     bottom: 1em;
     color: grey;
-    font-size: 80%;
-    font-weight: bold;
     left: 1em;
     position: absolute;
+  }
+
+  #footer span {
+    color: #009;
+    font-weight: bold;
   }
   
 /* page specific */
@@ -85,7 +88,7 @@
   </ul>
 </div>
 <div id="footer">
-  env: {{deploy_env}}
+  host: <span>{{hostname}}</span>
 </div>
 </body>
 </html>
