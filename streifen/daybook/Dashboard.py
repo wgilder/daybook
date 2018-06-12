@@ -16,3 +16,6 @@ class Dashboard(object):
     def deploy_env(self):
         return DAYBOOK_ENV['deploy_env']
 
+    def hostname(self):
+        return DAYBOOK_ENV['hostname']
+
