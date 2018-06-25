@@ -23,3 +23,9 @@ def about():
     about = AboutInfo()
     renderer = pystache.Renderer()
     return renderer.render(about)
+
+@app.route('/deps')
+def dependencies():
+    deps = DependenciesInfo()
+    renderer = pystache.Renderer()
+    return renderer.render(deps)
