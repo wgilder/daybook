@@ -2,6 +2,7 @@ from flask import render_template
 from app import app
 from streifen.daybook.SayHello import SayHello
 from streifen.daybook.Dashboard import Dashboard
+from streifen.daybook.deps import DependenciesInfo
 from streifen.daybook.about import AboutInfo
 import pystache
 
