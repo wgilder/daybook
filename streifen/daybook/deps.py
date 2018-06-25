@@ -19,10 +19,10 @@ class DependenciesInfo(object):
         return "Daybook: Dependencies"
 
     def deps_build_no(self):
-        return build_no
+        return self.build_no
 
     def deps_info(self):
-        return info
+        return self.info
 
     def deploy_env(self):
         return DAYBOOK_ENV['deploy_env']
