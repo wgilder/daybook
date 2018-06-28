@@ -4,7 +4,7 @@ from streifen.daybook import load_api, DAYBOOK_ENV
 class AboutInfo(object):
     def __init__(self):
         self.payload = load_api("version")
-        self._motd = "Hello from the Pipelines Demo!"
+        self._motd = "Thursday is one day before Friday!!"
 
     def header(self):
         return "Daybook: About"
