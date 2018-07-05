@@ -1,6 +1,6 @@
-Flask
-pystache
+flask
 requests
 python-dotenv
 authlib
 six
+pystache

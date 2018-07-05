@@ -1,8 +1,7 @@
 from flask import Flask
+app = Flask(__name__)
 from streifen.daybook import routes
 from authlib.flask.client import OAuth
-
-app = Flask(__name__)
 
 oauth = OAuth(app)
 

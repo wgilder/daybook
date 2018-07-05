@@ -2,7 +2,7 @@ import json
 from streifen.daybook import load_api, DAYBOOK_ENV
 
 class AboutInfo(object):
-    def __init__(self):
+    def __init__(self, missing_tags='strict'):
         self.payload = load_api("version")
         self._motd = "Thursday is one day before Friday!!"
 
