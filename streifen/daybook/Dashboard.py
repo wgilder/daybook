@@ -1,18 +1,19 @@
-from streifen.daybook import items, DAYBOOK_ENV
+from streifen.daybook.base import Base
+from streifen.daybook import items
 
-class Dashboard(object):
-    def header(self):
-        return "Daybook: Open Items"
+class Dashboard(Base):
+    def __init__(self):
+        super().__init__("dashboard.html", "Open Items")
 
     def body(self):
         return "June 5th, 2018 ({} item{})".format(len(items), "" if len(items)==1 else "s")
 
-    def title(self):
-        return "Open Items"
-
     def items(self):
         return items
 
-    def deploy_env(self):
-        return DAYBOOK_ENV['deploy_env']
+    def attributes(self):
+        d = super().attributes()
+        d["body"] = self.body()
+        d["items"] = self.items()
 
+        return d

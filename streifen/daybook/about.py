@@ -1,40 +1,47 @@
 import json
-from streifen.daybook import load_api, DAYBOOK_ENV
+from streifen.daybook.base import Base
+from streifen.daybook import load_api, get_env_value
 
-class AboutInfo(object):
-    def __init__(self, missing_tags='strict'):
-        self.payload = load_api("version")
+class About(Base):
+    def __init__(self):
+        super().__init__("about.html", "About")
+        self._payload = load_api("version")
         self._motd = "Thursday is one day before Friday!!"
 
-    def header(self):
-        return "Daybook: About"
-
-    def title(self):
-        return "Daybook: About"
-
     def message(self):
-        return self.payload['message']
+        return self._payload['message']
 
     def motd(self):
         return self._motd
 
     def ui_version(self):
-        return self.payload['version']
+        return self._payload['version']
 
     def ui_build_number(self):
-        return DAYBOOK_ENV['ui_bn']
+        return get_env_value('ui_bn')
 
     def api_version(self):
-        return self.payload['version']
+        return get_env_value('version')
 
     def api_build_number(self):
-        return self.payload['buildNumber']
+        return get_env_value('buildNumber')
 
     def author(self):
-        return self.payload['author']
+        return self._payload['author']
 
     def email(self):
-        return self.payload['email']
+        return self._payload['email']
 
-    def deploy_env(self):
-        return DAYBOOK_ENV['deploy_env']
+    def attributes(self):
+        d = super().attributes()
+    
+        d["message"] = self.message()
+        d["motd"] = self.motd()
+        d["ui_version"] = self.ui_version()
+        d["ui_build_number"] = self.ui_build_number()
+        d["api_version"] = self.api_version()
+        d["api_build_number"] = self.api_build_number()
+        d["author"] = self.author()
+        d["email"] = self.email()
+
+        return d

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_css %}
+<style type="text/css">
+#body #bodyHeader {
+  font-size: 130%;
+  font-weight: bold;
+}
+
+#body div {
+  font-size: 90%;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<p id="bodyHeader">{{motd}}</p>
+<p class="bold">Author: <span class="author">{{author}}</span> <span class="email">({{email}})</span></p>
+<div>(API: <span>v{{api_version}}-b{{api_build_number}}</span> / 
+    UI: <span>v{{ui_version}}-b{{ui_build_number}})</span></div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_css %}
+<style type="text/css">
+#body #bodyHeader {
+  font-size: 130%;
+  font-weight: bold;
+}
+
+#body div {
+  font-size: 90%;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+  <p id="bodyHeader">Dependencies Information</p>
+  <p class="bold">Version: <span class="author">{{deps_build_no}}</span></p>
+  <p class="bold">Build: <span class="author">{{deps_info}}</span></p>
+{% endblock %}

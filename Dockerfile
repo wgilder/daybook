@@ -7,4 +7,5 @@ RUN pip install -r /tmp_ins/requirements.txt
 RUN rm -rf /tmp_ins/
 
 ADD app.py /app/
+ADD templates/ /app/templates/
 ADD streifen/ /app/streifen/

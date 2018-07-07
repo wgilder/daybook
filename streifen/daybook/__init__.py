@@ -2,37 +2,26 @@ import os
 import json
 from urllib.request import urlopen
 
-ENV_DEFAULTS = {
-    'message': 'Default MotD',
-    'api_protocol': 'http',
-    'api_port': '9000',
-    'api_url': 'localhost',
-    'ui_bn': '-1',
-    'deploy_env': 'unknown'
-}
+def get_env_value(key, default=None):
+    if key in _DAYBOOK_ENVS:
+        val = _DAYBOOK_ENVS[key]
+        return val if val else default
 
-def env(key, default):
-    if (key in os.environ):
-        return os.environ[key]
-    else:
-        return default
-
-DAYBOOK_ENV = {
-    'message': env('DAYBOOK_ENV_SPECIFIC_MESSAGE', ENV_DEFAULTS['message']),
-    'api_protocol': env('DAYBOOK_API_PROTOCOL', ENV_DEFAULTS['api_protocol']),
-    'api_url': env('DAYBOOK_API_URL', ENV_DEFAULTS['api_url']),
-    'api_port': env('DAYBOOK_API_PORT', ENV_DEFAULTS['api_port']),
-    'ui_bn': env('DAYBOOK_BUILD', ENV_DEFAULTS['ui_bn']),
-    'deploy_env': env('DAYBOOK_ENV', ENV_DEFAULTS['deploy_env'])
-}
+    return default
 
 def load_api(name):
-    url = DAYBOOK_ENV['api_protocol'] + "://" + DAYBOOK_ENV['api_url'] + ":" + DAYBOOK_ENV['api_port'] + "/v1/" + name
+    url = _DAYBOOK_ENVS['api_protocol'] + "://" + _DAYBOOK_ENVS['api_url'] + ":" + _DAYBOOK_ENVS['api_port'] + "/v1/" + name
     print (url)
     raw = urlopen(url)
     text = raw.read()
     json_body = json.loads(text.decode('utf-8'))
     return json_body
+    
+def _env(key, default):
+    if (key in os.environ):
+        return os.environ[key]
+    else:
+        return default
 
 class Item:
     def __init__(self, name, date, location, amount, currency, description = ""):
@@ -49,3 +38,21 @@ items = [
     Item("Train", "May 30", "Moscow", "27.00", "$", "Return to hotel"),
     Item("Taxi", "June 3", "Honolulu", "8.50", "$", "Train station -> hotel")
 ]
+
+_ENV_DEFAULTS = {
+    'message': 'Default MotD',
+    'api_protocol': 'http',
+    'api_port': '9000',
+    'api_url': 'localhost',
+    'ui_bn': '-1',
+    'deploy_env': 'env_unknown'
+}
+
+_DAYBOOK_ENVS = {
+    'message': _env('DAYBOOK_ENVS_SPECIFIC_MESSAGE', _ENV_DEFAULTS['message']),
+    'api_protocol': _env('DAYBOOK_API_PROTOCOL', _ENV_DEFAULTS['api_protocol']),
+    'api_url': _env('DAYBOOK_API_URL', _ENV_DEFAULTS['api_url']),
+    'api_port': _env('DAYBOOK_API_PORT', _ENV_DEFAULTS['api_port']),
+    'ui_bn': _env('DAYBOOK_BUILD', _ENV_DEFAULTS['ui_bn']),
+    'deploy_env': _env('DAYBOOK_ENVS', _ENV_DEFAULTS['deploy_env'])
+}

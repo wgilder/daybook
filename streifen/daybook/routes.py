@@ -1,35 +1,29 @@
 from flask import render_template
 from app import app
-from streifen.daybook.SayHello import SayHello
-from streifen.daybook.Dashboard import Dashboard
-from streifen.daybook.deps import DependenciesInfo
-from streifen.daybook.about import AboutInfo
-import pystache
+from streifen.daybook.dashboard import Dashboard
+from streifen.daybook.dependencies import Dependencies
+from streifen.daybook.about import About
+
+def _render(obj):
+    attrs = obj.attributes()
+    template = obj.template_name()
+    return render_template(template, **attrs)
 
 @app.route('/')
 @app.route('/index')
 def dashboard():
-    db = Dashboard()
-    renderer = pystache.Renderer()
-    return renderer.render(db)
-
-@app.route('/hello')
-def hello():
-    hello = SayHello()
-    renderer = pystache.Renderer()
-    return renderer.render(hello)
+    obj = Dashboard()
+    return _render(obj)
 
 @app.route('/about')
 def about():
-    about = AboutInfo()
-    renderer = pystache.Renderer()
-    return renderer.render(about)
+    obj = About()
+    return _render(obj)
 
 @app.route('/deps')
 def dependencies():
-    deps = DependenciesInfo()
-    renderer = pystache.Renderer()
-    return renderer.render(deps)
+    obj = Dependencies()
+    return _render(obj)
 
 @app.route('/callback')
 def callback_handling():

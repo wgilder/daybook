@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block page_css %}
+<style type="text/css">
+  #tableHead {
+    border-bottom: 1px dotted blue;
+  }
+  
+  #body ul {
+      list-style: none;
+      padding: .25em .5em;
+      width: 80em;
+  }
+  
+  li span {
+    display: inline-block;
+    width: 5em;
+  }
+
+  li span.name {
+    width: 10em;
+  }
+
+  li span.desc {
+    width: 40em;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<p>{{body}}</p>
+<ul>
+  <li id="tableHead">
+    <span class="name">Name</span>
+    <span class="date">Date</span>
+    <span class="location">Location</span>
+    <span class="amount">Amount</span>
+    <span class="desc">Description</span>
+  </li>
+  {% for item in items %}
+  <li>
+    <span class="name">{{ item.name }}</span>
+    <span class="date">{{ item.date }}</span>
+    <span class="location">{{ item.location }}</span>
+    <span class="amount">{{ item.currency }}{{ item.amount }}</span>
+    <span class="desc">{{ item.description }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

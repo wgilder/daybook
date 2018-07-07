@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{{title}}</title>
+    
+<title>{% block title %}Daybook: {{title}}{% endblock %}</title>
+
 <style type="text/css">
   body {
     background-color: white;
@@ -13,7 +15,7 @@
   #body {
     padding: 0.5em 1em;
   }
-  
+
   #header .link {
     float: right;
   }
@@ -23,7 +25,7 @@
     border-bottom: 1px solid black;
     padding: 0.5em 1em;
   }
-  
+
   #footer {
     bottom: 1em;
     color: grey;
@@ -32,34 +34,33 @@
     left: 1em;
     position: absolute;
   }
-
-  div div span, span.author {
-    font-weight: bold;
-  }
-
-/* page specific */
-#body #bodyHeader {
-  font-size: 130%;
-  font-weight: bold;
-}
-
-#body div {
-  font-size: 90%;
-}
 </style>
+
+  {% block page_css %}
+  {% endblock %}
+
+<script type="text/javascript">
+</script>
+
+  {% block page_js %}
+  {% endblock %}
+
 </head>
 <body>
 <div id="header">
-  <p class="link"><a href="/">home</a></p>
-  <h2>{{header}}</h2>
+  {% block header %}
+  <p class="link"><a href="about">about</a></p>
+  <h2>Daybook {{header}}</h2>
+  {% endblock %}
 </div>
 <div id="body">
-  <p id="bodyHeader">Dependencies Information</p>
-  <p class="bold">Version: <span class="author">{{deps_build_no}}</span></p>
-  <p class="bold">Build: <span class="author">{{deps_info}}</span></p>
+  {% block body %} 
+  {% endblock %}
 </div>
 <div id="footer">
-  env: {{deploy_env}}
+  {% block footer %}
+  {{ footer }}
+  {% endblock %}
 </div>
 </body>
 </html>
