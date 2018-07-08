@@ -6,9 +6,9 @@ class Base(object):
           raise ValueError("template name not set")
 
       self._title = title
-      self._header = self._title if header is None else header
+      self._header = header or self._title
       self._template_name = template_name
-    
+
     def attributes(self):
         d = { 
             "deploy_env": self.deploy_env(),
