@@ -1,5 +1,5 @@
 flask
 requests
-python-dotenv
-authlib
-six
+#python-dotenv
+#authlib
+#six

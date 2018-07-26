@@ -1,10 +1,7 @@
 # Puppet Pipelines demo, v6
 walter.gildersleeve/daybook:
   Env:
-    - DAYBOOK_PORT_DEST: "8080"
-    - DBAPI_PROTOCOL: "http"
     - DBAPI_URL: "localhost"
-    - DBAPI_PORT: "9000"
   PreBuild:
   Build:
     - echo Building the Daybook Front End Application
@@ -23,9 +20,9 @@ walter.gildersleeve/daybook:
     - cid=$(uuidgen)
     - trap 'sudo docker stop $cid' SIGTERM
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - echo ~~~ sudo -E docker run --name=$cid --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - echo ~~~ sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_API_URL=$DBAPI_URL -p 8080:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_BUILD=$DISTELLI_BUILDNUM --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_API_URL=$DBAPI_URL -p 8080:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - wait
     - "true"
 ### End Docker Exec Commands ###
