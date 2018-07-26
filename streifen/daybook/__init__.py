@@ -54,5 +54,5 @@ _DAYBOOK_ENVS = {
     'api_url': _env('DAYBOOK_API_URL', _ENV_DEFAULTS['api_url']),
     'api_port': _env('DAYBOOK_API_PORT', _ENV_DEFAULTS['api_port']),
     'ui_bn': _env('DAYBOOK_BUILD', _ENV_DEFAULTS['ui_bn']),
-    'deploy_env': _env('DAYBOOK_ENVS', _ENV_DEFAULTS['deploy_env'])
+    'deploy_env': _env('DAYBOOK_ENV', _ENV_DEFAULTS['deploy_env'])
 }
