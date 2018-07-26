@@ -6,7 +6,7 @@ class About(Base):
     def __init__(self):
         super().__init__("about.html", "About")
         self._payload = load_api("version")
-        self._motd = "Thursday is one day before Friday!!"
+        self._motd = "Default MotD"
 
     def message(self):
         return self._payload['message']
