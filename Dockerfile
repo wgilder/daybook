@@ -11,4 +11,4 @@ ADD templates/ /app/templates/
 ADD streifen/ /app/streifen/
 
 COPY NR_entrypoint.sh /entrypoint.sh
-
+RUN chmod 777 /entrypoint.sh
