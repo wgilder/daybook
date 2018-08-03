@@ -6,7 +6,7 @@ class About(Base):
     def __init__(self):
         super().__init__("about.html", "About")
         self._payload = load_api("version")
-        self._motd = "Default Message of the Day!"
+        self._motd = "Hello to Auth0!!"
 
     def message(self):
         return self._payload['message']
