@@ -14,7 +14,8 @@ class Base(object):
             "deploy_env": self.deploy_env(),
             "title": self._title,
             "header": self._header,
-            "footer": self.deploy_env()
+            "footer": self.deploy_env(),
+            "link": self.link(),
         }
         return d
 
