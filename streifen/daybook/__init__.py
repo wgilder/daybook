@@ -33,10 +33,10 @@ class Item:
         self.description = description
 
 items = [
-    Item("Taxi", "May 26", "Waterloo", "25.00", "$", "Train station -> customer"),
-    Item("Lunch", "May 27", "Paris", "6.00", "$"),
-    Item("Train", "May 30", "Moscow", "27.00", "$", "Return to hotel"),
-    Item("Taxi", "June 3", "Honolulu", "8.50", "$", "Train station -> hotel")
+    Item("Taxi", "July 23", "Waterloo, Iowa", "25.00", "$", "Train station -> customer"),
+    Item("Lunch", "July 24", "Paris, Texas", "6.00", "$"),
+    Item("Train", "July 26", "Moscow, Idaho", "27.00", "$", "Return to hotel"),
+    Item("Taxi", "July 27", "New York, Kentucky", "8.50", "$", "Train station -> hotel")
 ]
 
 _ENV_DEFAULTS = {
