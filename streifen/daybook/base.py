@@ -23,3 +23,6 @@ class Base(object):
 
     def template_name(self):
         return self._template_name
+
+    def link(self):
+        return "about"

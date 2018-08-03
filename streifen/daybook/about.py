@@ -32,6 +32,9 @@ class About(Base):
     def email(self):
         return self._payload['email']
 
+    def link(self):
+        return "index"
+
     def attributes(self):
         d = super().attributes()
     
