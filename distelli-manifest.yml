@@ -2,6 +2,7 @@
 walter.gildersleeve/daybook-dd:
   Env:
     - DBAPI_URL: "localhost"
+    - DAYBOOK_PORT: 8080
   PreBuild:
   Build:
     - echo Building the Daybook Front End Application
@@ -22,7 +23,7 @@ walter.gildersleeve/daybook-dd:
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     - echo ~~~ sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_API_URL=$DBAPI_URL -p 8080:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_API_URL=$DBAPI_URL -p 8080:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_API_URL=$DBAPI_URL -p $DAYBOOK_PORT:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - wait
     - "true"
 ### End Docker Exec Commands ###
