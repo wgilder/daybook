@@ -1,6 +1,8 @@
 from streifen.daybook.base import Base
 from streifen.daybook import items
 
+#small change
+
 class Dashboard(Base):
     def __init__(self):
         super().__init__("dashboard.html", "Open Items")
