@@ -45,7 +45,7 @@ _ENV_DEFAULTS = {
     'api_port': '9000',
     'api_url': 'localhost',
     'ui_bn': '0',
-    'ui_v': '0.1.0',
+    'ui_v': '0.2.0',
     'deploy_env': 'env_unknown'
 }
 
