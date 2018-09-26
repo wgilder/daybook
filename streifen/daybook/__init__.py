@@ -44,7 +44,8 @@ _ENV_DEFAULTS = {
     'api_protocol': 'http',
     'api_port': '9000',
     'api_url': 'localhost',
-    'ui_bn': '-1',
+    'ui_bn': '0',
+    'ui_v': '0.1.0',
     'deploy_env': 'env_unknown'
 }
 
@@ -54,5 +55,6 @@ _DAYBOOK_ENVS = {
     'api_url': _env('DAYBOOK_API_URL', _ENV_DEFAULTS['api_url']),
     'api_port': _env('DAYBOOK_API_PORT', _ENV_DEFAULTS['api_port']),
     'ui_bn': _env('DAYBOOK_BUILD', _ENV_DEFAULTS['ui_bn']),
+    'version': _env('DAYBOOK_VERSION', _ENV_DEFAULTS['ui_v']),
     'deploy_env': _env('DAYBOOK_ENV', _ENV_DEFAULTS['deploy_env'])
 }

@@ -17,16 +17,16 @@ class About(Base):
         return self._motd
 
     def ui_version(self):
-        return self._payload['version']
+        return get_env_value('version')
 
     def ui_build_number(self):
         return get_env_value('ui_bn')
 
     def api_version(self):
-        return get_env_value('version')
+        return self._payload['version']
 
     def api_build_number(self):
-        return get_env_value('buildNumber')
+        return self._payload['buildNumber']
 
     def author(self):
         return self._payload['author']

@@ -20,9 +20,9 @@ walter.gildersleeve/daybook:
     - cid=$(uuidgen)
     - trap 'sudo docker stop $cid' SIGTERM
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - echo ~~~ sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_API_URL=$DBAPI_URL -p 8080:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - echo ~~~ sudo -E docker run --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_BUILD=$DISTELLI_BUILDNUM --env DAYBOOK_API_URL=$DBAPI_URL -p 80:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - sudo -E docker run -v /shared-folder:/shared-folder --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_API_URL=$DBAPI_URL -p 8080:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    -          sudo -E docker run --name=$cid --env DAYBOOK_ENV=$DISTELLI_ENV --env DAYBOOK_BUILD=$DISTELLI_BUILDNUM --env DAYBOOK_API_URL=$DBAPI_URL -p 80:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - wait
     - "true"
 ### End Docker Exec Commands ###
