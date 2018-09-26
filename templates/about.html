@@ -15,7 +15,14 @@
 
 {% block body %}
 <p id="bodyHeader">{{motd}}</p>
-<p class="bold">Author: <span class="author">{{author}}</span> <span class="email">({{email}})</span></p>
-<div>(API: <span>v{{api_version}}-b{{api_build_number}}</span> / 
-    UI: <span>v{{ui_version}}-b{{ui_build_number}})</span></div>
+<p>The Daybook app was written by {{author}} (send suggestions to {{email}}).</p>
+<div>
+  <p>
+    <span class="bold">Version information:</span>
+    <ul>
+      <li><span class="bold">API:</span> <span>v{{api_version}}-b{{api_build_number}}</span></li>
+      <li><span class="bold">UI:</span> <span>v{{ui_version}}-b{{ui_build_number}})</span></li>
+    </ul> 
+  </p>
+</div>
 {% endblock %}
