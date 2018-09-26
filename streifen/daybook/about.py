@@ -2,6 +2,8 @@ import json
 from streifen.daybook.base import Base
 from streifen.daybook import load_api, get_env_value
 
+# About page information
+
 class About(Base):
     def __init__(self):
         super().__init__("about.html", "About")
