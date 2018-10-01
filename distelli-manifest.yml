@@ -2,18 +2,14 @@
 walter.gildersleeve/daybook:
   Env:
     - DBAPI_URL: "localhost"
-  PreBuild:
   Build:
     - echo Building the Daybook Front End Application
     - docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
     - docker build --quiet=false -t "$DISTELLI_DOCKER_REPO" $DISTELLI_DOCKER_PATH
     - docker tag "$DISTELLI_DOCKER_REPO" "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
     - docker push "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
-  PkgInclude:
-  PkgExclude:
   PreInstall:
     - sudo docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
-  PostInstall:
   Exec:
 ### Docker Exec Commands ###
     - echo Starting the Daybook Front End Application
