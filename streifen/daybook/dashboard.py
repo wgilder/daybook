@@ -6,7 +6,7 @@ class Dashboard(Base):
         super().__init__("dashboard.html", "Open Items")
 
     def body(self):
-        return "August 3rd, 2018 ({} item{})".format(len(items), "" if len(items)==1 else "s")
+        return "November 14, 2018 ({} item{})".format(len(items), "" if len(items)==1 else "s")
 
     def items(self):
         return items
