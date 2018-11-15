@@ -1,5 +1,5 @@
 # Puppet Pipelines demo, v6
-walter.gildersleeve/daybook-rework-broken:
+walter.gildersleeve/daybook-broken:
   Env:
     - DBAPI_URL: "localhost"
   Build:
